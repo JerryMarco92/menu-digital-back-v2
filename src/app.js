@@ -20,6 +20,6 @@ app.use(rutaNoEncontrada);
 
 app.use(errorHandler);
 
-app.listen(PORTPORT, "0.0.0.0", () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Backend disponible en puerto: ${PORT}`);
 });
