@@ -17,3 +17,15 @@ export const pool = mysql.createPool({
     waitForConnections: true,
     connectionLimit: 4
 });
+
+// Prueba temporal de conexión
+pool.query("SELECT 1 AS conectado")
+  .then(([rows]) => {
+    console.log("✅ Conexión a Clever Cloud correcta:", rows);
+  })
+  .catch((error) => {
+    console.error("❌ Error al conectar con Clever Cloud:", {
+      code: error.code,
+      message: error.message
+    });
+  });
