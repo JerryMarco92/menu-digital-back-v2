@@ -72,9 +72,15 @@ export async function obtenerPlatos(req, res, next) {
             total: total
             });
 
-    } catch (err){
-        next(err);
-    }
+    } catch (err) {
+    console.error("Error en obtenerPlatos:", {
+        code: err.code,
+        message: err.message,
+        sqlMessage: err.sqlMessage
+    });
+
+    next(err);
+  }
     
 }
 
