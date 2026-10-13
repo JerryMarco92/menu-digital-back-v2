@@ -7,7 +7,7 @@ import { rutaNoEncontrada } from "./middlewares/rutaNoEncontrada.js";
 
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -19,5 +19,5 @@ app.use(rutaNoEncontrada);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`puerto: ${PORT}`);
+  console.log(`Backend disponible en puerto: ${PORT}`);
 });
