@@ -9,9 +9,18 @@ import { rutaNoEncontrada } from "./middlewares/rutaNoEncontrada.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const originsPermitidos = [
+    process.env.FRONTEND_URL,
+    "http://localhost:4321"
+].filter(Boolean);
+
+console.log("Orígenes permitidos:", originsPermitidos);
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+    origin: originsPermitidos,
+    methods: ["GET"]
 }));
+
 app.use(express.json());
 
 app.use(platosRoutes);
